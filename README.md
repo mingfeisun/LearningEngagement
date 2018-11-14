@@ -7,8 +7,7 @@ ROS# is a set of open source software libraries and tools in C# for communicatin
 
 ### Pepper robot
 
-<img src="docs/pepper-single.png" alt="one pepper" height="300px"/>
-<img src="docs/pepper-two.png" alt="two peppers" height="300px"/>
+<img src="docs/pepper-single.png" alt="one pepper" height="300px"/><img src="docs/pepper-two.png" alt="two peppers" height="300px"/>
 
 
 ### Setups & Installation
