@@ -6493,7 +6493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe4cf3b1dd3507418f7ec019f9193ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /joint_control_angles
+  Topic: /joint_states
   TimeStep: 0
   JointNames:
   - HeadYaw
@@ -6604,7 +6604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae1d8da5a3c0644bb98a540ca597dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /joint_states
+  Topic: /joint_angels
   JointStateReaders:
   - {fileID: 2017523487}
   - {fileID: 303100548}
