@@ -10,6 +10,7 @@ ROS# is a set of open source software libraries and tools in C# for communicatin
 <img src="docs/pepper-single.png" alt="one pepper" height="300px"/><img src="docs/pepper-two.png" alt="two peppers" height="300px"/>
 
 Control pepper in Unity (panel demo):
+
 <img src="docs/move_pepper.gif" alt="move pepper" width="600px"/>
 
 
