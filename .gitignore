@@ -1,0 +1,9 @@
+# vim backup files
+*~
+
+# python compiled 
+*pyc
+
+# ros build
+build/
+devel/
