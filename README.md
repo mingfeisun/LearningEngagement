@@ -1,7 +1,7 @@
 ## Group behavior modeling
 
 ### Behavior modeling via Maximum Casual Entropy
-Assume group behaviors are governed by 
+Assume group behaviors are governed by some objective function, which is optimized by all the members in this group. For example, the objective function can be time allocations so that each member could converse equally to others members. When a robot approaches a group, it needs to estimate the objective function for that group so that it can avoid any disturbance to the group optimization process. 
 
 ### Simulation platform
 ### [ROS#](https://github.com/siemens/ros-sharp)
