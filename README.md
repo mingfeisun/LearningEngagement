@@ -1,5 +1,8 @@
 ## Group behavior modeling
 
+### Behavior modeling via Maximum Casual Entropy
+Assume group behaviors are governed by 
+
 ### Simulation platform
 ### [ROS#](https://github.com/siemens/ros-sharp)
 
