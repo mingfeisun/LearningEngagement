@@ -1,6 +1,5 @@
 # unity project
-unity_project/Temp/
-unity_project/Library/ShaderCache/
+misc/
 
 # vscode
 .vscode/
@@ -14,3 +13,4 @@ unity_project/Library/ShaderCache/
 # ros build
 build/
 devel/
+
