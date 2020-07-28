@@ -1,7 +1,11 @@
-## Group behavior modeling
+## Learning Engagement
 
-### Behavior modeling via Maximum Casual Entropy
-Assume group behaviors are governed by some objective function, which is optimized by all the members in this group. For example, the objective function can be time allocations so that each member could converse equally to others members. When a robot approaches a group, it needs to estimate the objective function for that group so that it can avoid any disturbance to the group optimization process. 
+### TODO list
+* Setup Unity simulation environment with Pepper & demonstrator
+* Communication between Unity and ROS (possibly) for Pepper and demonstrator
+* Training workflow between Unity and algorithms
+* User study interface design (response collections at front-back end)
+* Learning engagement design & rationals
 
 ### Simulation platform
 ### [ROS#](https://github.com/siemens/ros-sharp)
