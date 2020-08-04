@@ -1,7 +1,11 @@
-## Group behavior modeling
+## Learning Engagement
 
-### Behavior modeling via Maximum Casual Entropy
-Assume group behaviors are governed by 
+### TODO list
+* Setup Unity simulation environment with Pepper & demonstrator
+* Communication between Unity and ROS (possibly) for Pepper and demonstrator
+* Training workflow between Unity and algorithms
+* User study interface design (response collections at front-back end)
+* Learning engagement design & rationals
 
 ### Simulation platform
 ### [ROS#](https://github.com/siemens/ros-sharp)

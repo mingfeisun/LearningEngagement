@@ -1,6 +1,5 @@
 # unity project
-unity_project/Temp/
-unity_project/Library/ShaderCache/
+misc/
 
 # vscode
 .vscode/
@@ -15,5 +14,8 @@ unity_project/Library/ShaderCache/
 build/
 devel/
 
+<<<<<<< HEAD
 # test 
 test/
+=======
+>>>>>>> 8b317a9ba35a404c3973aea8b36bb5a8c3d58e8d
