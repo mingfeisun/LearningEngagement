@@ -1,5 +1,12 @@
 # unity project
+<<<<<<< HEAD
 misc/
+=======
+unity/Temp/
+unity/Library/ShaderCache/
+unity_project/Temp/
+unity_project/Library/ShaderCache/
+>>>>>>> learning
 
 # vscode
 .vscode/
