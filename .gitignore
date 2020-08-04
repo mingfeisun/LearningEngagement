@@ -1,5 +1,8 @@
 # unity project
 unity_project/Temp/
+unity_project/Library/metadata/
+unity_project/Library/StateCache/
+unity_project/Library/ScriptAssemblies/
 unity_project/Library/ShaderCache/
 
 # vscode
