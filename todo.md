@@ -7,7 +7,7 @@
 * Training framework
 
 **Feng** 
-* Unity deployment to lab server
+* Unity deployment to lab server: *full* branch (https://github.com/mingfeisun/LearningEngagement/tree/full)
 * Unity scene improvement
 * Unity human mesh improvement
 
