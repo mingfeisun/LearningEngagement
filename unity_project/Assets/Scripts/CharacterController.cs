@@ -17,20 +17,18 @@ public class CharacterController : MonoBehaviour {
     }
 
     void Awake() {
-        // actor = GameObject.Find("character_simulated/mixamorig1_Hips").GetComponent<Actor>();
+        // actor = GameObject.Find("human/mixamorig1_Hips").GetComponent<Actor>();
         actor = GetComponent<Actor>();
         // initPose = transform.localToWorldMatrix;
-
     }
 
     void Start() { 
-        // offsetTf = GameObject.Find("character_simulated").transform;
+        offsetTf = GameObject.Find("human").transform;
         // Debug.Log("Position: " + offsetTf.position + ", Rotation: " + offsetTf.rotation);
 
-        animationClip = (AnimationClip)AssetDatabase.LoadAssetAtPath("Assets/Motions/rumba_dancing.fbx", typeof(AnimationClip));
-        // Debug.Log("Actor: ", actor);
-        // motionData = (MotionData)AssetDatabase.LoadMainAssetAtPath("Assets/Motions/rumba_dancing.asset");
-        // Debug.Log("Number of frames: " + motionData.Frames.Length);
+        // animationClip = (AnimationClip)AssetDatabase.LoadAssetAtPath("Assets/Motions/rumba_dancing.fbx", typeof(AnimationClip));
+        motionData = (MotionData)AssetDatabase.LoadMainAssetAtPath("Assets/Motions/rumba_dancing.asset");
+        Debug.Log("Number of frames: " + motionData.Frames.Length);
         // Debug.Log("Root quaternion: " + frames.GetRootRotation());
 
         // destination+"/"+data.name+".asset";
@@ -42,16 +40,15 @@ public class CharacterController : MonoBehaviour {
 
     void Update() {
         currTime += Time.deltaTime;
-
-        // if (currTime > motionData.GetTotalTime()){
-        //     currTime = 0.0f;
-        // }
-        // currTime = Time.realtimeSinceStartup;
-
-        if (currTime > animationClip.length){
+        if (currTime > motionData.GetTotalTime()){
             currTime = 0.0f;
         }
-        animationClip.SampleAnimation(actor.gameObject, currTime);
+        // currTime = Time.realtimeSinceStartup;
+
+        // if (currTime > animationClip.length){
+        //     currTime = 0.0f;
+        // }
+        // animationClip.SampleAnimation(actor.gameObject, currTime);
         // Debug.Log("Updating");
 
         // GameObject.Find("character_simulated").transform.position += offsetTf.position;
@@ -61,8 +58,8 @@ public class CharacterController : MonoBehaviour {
         // while(currTime > motionData.GetTotalTime()){
         //     currTime -= motionData.GetTotalTime();
         // }
-        // var frame = motionData.GetFrame(currTime);
-        // Animate(frame);
+        var frame = motionData.GetFrame(currTime);
+        Animate(frame);
     }
 
     void LoadMocap(){
@@ -78,9 +75,12 @@ public class CharacterController : MonoBehaviour {
         actor.Bones[0].Transform.rotation = tf.GetRotation();
 
         for(int i=1; i<actor.Bones.Length; i++) {
-            tf = frame.GetBoneTransformation(i-1);
+            tf = frame.GetBoneTransformation(i);
+            Debug.Log(actor.Bones[i].GetName());
             actor.Bones[i].Transform.position = tf.GetPosition() + offsetTf.position;
             actor.Bones[i].Transform.rotation = tf.GetRotation();
+            Debug.Log(tf.GetPosition());
+            Debug.Log(tf.GetRotation());
         }
         // actor.Bones[0].Transform.rotation *= offsetTf.rotation;
         // GameObject.Find("charater_simulated").transform.rotation = offsetTf.rotation;

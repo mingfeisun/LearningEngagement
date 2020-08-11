@@ -11,8 +11,7 @@ public class SocketConnect : MonoBehaviour
     #region private members
     private TcpClient socketConnection;
     private Thread clientReceiveThread;
-    private GameObject simulatedDeforms;
-    private CharacterController charController;
+    private Actor human;
     private PredictedDeforms predictedDeforms;
     private StreamWriter fileWriter = new StreamWriter("");
     private Queue<int> numFramesQueue = new Queue<int>();
@@ -24,9 +23,7 @@ public class SocketConnect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        simulatedDeforms = GameObject.Find("character_simulated/mixamorig1_Hips/dress");
-        predictedDeforms = GameObject.Find("character_predicted/mixamorig1_Hips/dress").GetComponent<PredictedDeforms>();
-        charController = GameObject.Find("character_simulated").GetComponent<CharacterController>();
+        human = GetComponent<Actor>();
         ConnectToTcpServer();
     }
 
@@ -40,7 +37,7 @@ public class SocketConnect : MonoBehaviour
         }
         if(numFramesToSend == 0)
         {
-            SendMessage();
+            // SendMessage();
             numFramesToSend = 100;
             // SendNull();
         }
@@ -110,10 +107,6 @@ public class SocketConnect : MonoBehaviour
         }
     }
 
-    private void SaveCurrentFrame()
-    {
-    }
-
     private void SendMessage() {
         if (socketConnection == null) {
             return;
@@ -153,7 +146,7 @@ public class SocketConnect : MonoBehaviour
 
     private byte[] GetStateEncode()
     {
-        var tmpCloth = simulatedDeforms.GetComponent<Cloth>();
+        var tmpCloth = human.GetComponent<Cloth>();
         Vector3[] verticies = tmpCloth.vertices;
         // Debug.Log("Num of verticies: " + verticies.Length);
         string stateMsg="#"; // start with symbol #

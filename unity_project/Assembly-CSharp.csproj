@@ -53,62 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\RosSharp\Scripts\Extensions\StandardHeaderExtensions.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Extensions\TransformExtensions.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JointStatePatcher.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JointStateReader.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JointStateWriter.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JoyAxisInputPasser.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JoyAxisJointMotorWriter.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JoyAxisJointTransformWriter.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JoyAxisReader.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JoyAxisWriter.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JoyButtonReader.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\JoyButtonWriter.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\LaserScanReader.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageHandling\LaserScanWriter.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\GetParamServiceProvider.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\ImagePublisher.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\ImageSubscriber.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\JointStatePublisher.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\JointStateSubscriber.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\JoyPublisher.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\JoySubscriber.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\LaserScanPublisher.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\LaserScanSubscriber.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\OdometrySubscriber.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\PoseStampedPublisher.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\PoseStampedSubscriber.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\Publisher.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\RosConnector.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\ServiceProvider.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\Subscriber.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\TwistPublisher.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\RosCommuncation\TwistSubscriber.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\SensorDataVisualization\LaserScanVisualizer.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\SensorDataVisualization\LaserScanVisualizerLines.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\SensorDataVisualization\LaserScanVisualizerMesh.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\SensorDataVisualization\LaserScanVisualizerSpheres.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\JointLimitsManagers\HingeJointLimitsManager.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\JointLimitsManagers\PrismaticJointLimitsManager.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\Math\Matrix3x3.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfCollision.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfCollisions.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfInertial.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfJoints\UrdfJoint.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfJoints\UrdfJointContinuous.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfJoints\UrdfJointFixed.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfJoints\UrdfJointFloating.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfJoints\UrdfJointPlanar.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfJoints\UrdfJointPrismatic.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfJoints\UrdfJointRevolute.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfLink.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfOrigin.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfPlugin.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfPlugins.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfRobot.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfVisual.cs" />
-     <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfVisuals.cs" />
      <Compile Include="Assets\Scripts\Actor.cs" />
      <Compile Include="Assets\Scripts\ArrayExtensions.cs" />
      <Compile Include="Assets\Scripts\BVHImporter.cs" />
@@ -344,18 +288,6 @@
  </Reference>
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>/Applications/Unity/Hub/Editor/2018.4.13f1/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
- </Reference>
- <Reference Include="websocket-sharp">
- <HintPath>/Users/mingfeisun/Documents/Oxford/Research/2020/projects/LearningEngagement/unity_project/Assets/RosSharp/Plugins/websocket-sharp.dll</HintPath>
- </Reference>
- <Reference Include="RosBridgeClient">
- <HintPath>/Users/mingfeisun/Documents/Oxford/Research/2020/projects/LearningEngagement/unity_project/Assets/RosSharp/Plugins/RosBridgeClient.dll</HintPath>
- </Reference>
- <Reference Include="Newtonsoft.Json">
- <HintPath>/Users/mingfeisun/Documents/Oxford/Research/2020/projects/LearningEngagement/unity_project/Assets/RosSharp/Plugins/Newtonsoft.Json.dll</HintPath>
- </Reference>
- <Reference Include="Urdf">
- <HintPath>/Users/mingfeisun/Documents/Oxford/Research/2020/projects/LearningEngagement/unity_project/Assets/RosSharp/Plugins/Urdf.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
  <HintPath>/Users/mingfeisun/Documents/Oxford/Research/2020/projects/LearningEngagement/unity_project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>

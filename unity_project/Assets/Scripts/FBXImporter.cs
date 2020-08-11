@@ -73,8 +73,8 @@ public class FBXImporter : EditorWindow {
 
                     Framerate = EditorGUILayout.IntField("Framerate", Framerate);
 
-                    // find character_simulated as the skeleton structure
-                    Character = GameObject.Find("character_simulated").GetComponent<Actor>();
+                    // find human as the skeleton structure
+                    Character = GameObject.Find("human").GetComponent<Actor>();
 
                     if(Utility.GUIButton("Load Directory", UltiDraw.DarkGrey, UltiDraw.White)) {
                         LoadDirectory();
