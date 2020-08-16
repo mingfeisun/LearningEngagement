@@ -1,6 +1,7 @@
 ﻿#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
+using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -75,7 +76,6 @@ public class FBXImporter : EditorWindow {
 
                     // find human as the skeleton structure
                     Character = GameObject.Find("human").GetComponent<Actor>();
-
                     if(Utility.GUIButton("Load Directory", UltiDraw.DarkGrey, UltiDraw.White)) {
                         LoadDirectory();
                     }
@@ -130,7 +130,6 @@ public class FBXImporter : EditorWindow {
     }
 
     private void LoadDirectory() {
-        Debug.Log(Source);
         string source = Application.dataPath + "/Motions" + Source;
         if(Directory.Exists(source)) {
             DirectoryInfo info = new DirectoryInfo(source);

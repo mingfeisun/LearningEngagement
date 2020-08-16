@@ -12,11 +12,9 @@ public class SocketConnect : MonoBehaviour
     private TcpClient socketConnection;
     private Thread clientReceiveThread;
     private Actor human;
-    private PredictedDeforms predictedDeforms;
     private StreamWriter fileWriter = new StreamWriter("");
     private Queue<int> numFramesQueue = new Queue<int>();
     private Queue<Vector3[]> ballInitQueue = new Queue<Vector3[]>();
-    private Queue<Vector3[]> clothStateQueue = new Queue<Vector3[]>();
     private int numFramesToSend = 0;
     #endregion
 
@@ -52,11 +50,6 @@ public class SocketConnect : MonoBehaviour
             // charController.SetVelocity(tmpAction[1]);
             Debug.Log("Frames to send: " + numFramesToSend);
             Debug.Log("Set ball to state: " + tmpAction[0].ToString("F3") + tmpAction[1].ToString("F3"));
-        }
-        if (clothStateQueue.Count != 0)
-        {
-            var tmpVertices = clothStateQueue.Dequeue();
-            predictedDeforms.SetState(tmpVertices);
         }
     }
 
@@ -96,7 +89,6 @@ public class SocketConnect : MonoBehaviour
                         }
                         else if(numFrames == 0 && prefix.Equals("STATE"))
                         {
-                            clothStateQueue.Enqueue(dataVec);
                         }
                     }
                 }

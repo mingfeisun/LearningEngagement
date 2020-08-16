@@ -302,12 +302,6 @@ public class BVHImporter : EditorWindow {
                                 data.Frames[k].Local[i] = Matrix4x4.TRS(position, rotation, Vector3.one);
                                 data.Frames[k].World[i] = info.Parent == "None" ? data.Frames[k].Local[i] : data.Frames[k].World[data.Source.FindBone(info.Parent).Index] * data.Frames[k].Local[i];
                             }
-                            /*
-                            for(int i=0; i<data.Source.Bones.Length; i++) {
-                                data.Frames[k].Local[i] *= Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(data.Corrections[i]), Vector3.one);
-                                data.Frames[k].World[i] *= Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(data.Corrections[i]), Vector3.one);
-                            }
-                            */
                         }
 
                         if(data.GetTotalFrames() == 1) {
