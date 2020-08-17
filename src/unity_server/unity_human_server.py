@@ -38,12 +38,12 @@ class UnityHumanServer(gym.Env):
         HOST = "localhost"
         PORT = 65432
         self.frame_queue = deque(maxlen=100) # frame buffer
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            s.bind((HOST, PORT))
-            print('Waiting for connection...')
-            s.listen()
-            conn, _ = s.accept()
-            print('Connected!')
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.bind((HOST, PORT))
+        print('Waiting for connection...')
+        s.listen(100)
+        conn, _ = s.accept()
+        print('Connected!')
         self.bvh_sender = UnityBVHSender(bvh_file, root_frame, conn)
         
     def send(self, loop=True):
