@@ -37,7 +37,7 @@ public class CharacterController : MonoBehaviour {
     }
 
     void ConstructMapping() {
-        StreamReader inp_stm = new StreamReader("name2index.txt");
+        StreamReader inp_stm = new StreamReader("Assets/Scripts/name2index.txt");
         while(!inp_stm.EndOfStream)
         {
             String inp_ln = inp_stm.ReadLine( );
