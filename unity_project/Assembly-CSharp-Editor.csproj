@@ -94,19 +94,19 @@
      <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfVisualExtensions.cs" />
      <Compile Include="Assets\RosSharp\Scripts\Urdf\Editor\UrdfComponents\UrdfVisualsExtensions.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/home/mingfei/Unity/Hub/Editor/2018.4.25f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -340,31 +340,31 @@
  <HintPath>/home/mingfei/Unity/Hub/Editor/2018.4.25f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Urdf">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Assets/RosSharp/Plugins/Urdf.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Assets/RosSharp/Plugins/Urdf.dll</HintPath>
  </Reference>
  <Reference Include="RosBridgeClient">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Assets/RosSharp/Plugins/RosBridgeClient.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Assets/RosSharp/Plugins/RosBridgeClient.dll</HintPath>
  </Reference>
  <Reference Include="websocket-sharp">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Assets/RosSharp/Plugins/websocket-sharp.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Assets/RosSharp/Plugins/websocket-sharp.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Assets/RosSharp/Plugins/Newtonsoft.Json.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Assets/RosSharp/Plugins/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Purchasing">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/home/mingfei/Unity/Hub/Editor/2018.4.25f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

@@ -9,7 +9,7 @@ import string
 import numpy as np
 from gym import spaces, utils
 from collections import deque
-from bvh_broadcaster import BVHBroadcaster
+from bvh_broadcaster import BVHBroadcaster, BVHReader
 
 def encode_data(frame_name, trans, rot):
     # (bone name, position 3 DoF, rotation 4 DoF)
@@ -25,7 +25,11 @@ def encode_data(frame_name, trans, rot):
 
 class UnityBVHSender(BVHBroadcaster):
     def __init__(self, filename, root_frame, tcp_conn):
-        BVHReader.__init__(self, filename)
+        #addbyms
+        BVHBroadcaster.__init__(self, filename, root_frame)
+
+        #BVHReader.__init__(self, filename)
+        print('mark 1')
         self.tcp_conn = tcp_conn
 
     def sendTf(self, _trans, _rot, _time, _tf, _parent_tf):

@@ -24,8 +24,8 @@ class Node:
 
 # BVHReader
 class BVHReader:
-    def __init__(self, filename):
-
+    def __init__(self, filename):   
+        print('mark 3')     
         self.filename = filename
         # A list of unprocessed tokens (strings)
         self.tokenlist = []
@@ -234,6 +234,7 @@ class BVHReader:
 
 class BVHBroadcaster(BVHReader):
     def __init__(self, filename, root_frame):
+        print('mark 2')
         BVHReader.__init__(self, filename)
         self.br = tf.TransformBroadcaster()
         self.all_motions = []
@@ -341,6 +342,9 @@ class BVHBroadcaster(BVHReader):
 
     def broadcast(self, loop=False):
         self.read()
+        #addbyms
+        rospy.init_node("BVHBroadcaster")
+        
         rate = rospy.Rate(1/self.dt)
 
         while not rospy.is_shutdown():

@@ -127,20 +127,21 @@
      <Compile Include="Assets\Scripts\Utility.cs" />
      <None Include="Assets\Scripts\Resources\UltiDraw.shader" />
      <None Include="Assets\Scripts\name2index.txt" />
+     <None Include="Assets\Scripts\WriteLines2.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/home/mingfei/Unity/Hub/Editor/2018.4.25f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -347,19 +348,19 @@
  <HintPath>/home/mingfei/Unity/Hub/Editor/2018.4.25f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Urdf">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Assets/RosSharp/Plugins/Urdf.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Assets/RosSharp/Plugins/Urdf.dll</HintPath>
  </Reference>
  <Reference Include="RosBridgeClient">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Assets/RosSharp/Plugins/RosBridgeClient.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Assets/RosSharp/Plugins/RosBridgeClient.dll</HintPath>
  </Reference>
  <Reference Include="websocket-sharp">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Assets/RosSharp/Plugins/websocket-sharp.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Assets/RosSharp/Plugins/websocket-sharp.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Assets/RosSharp/Plugins/Newtonsoft.Json.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Assets/RosSharp/Plugins/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>/home/mingfei/Documents/LearningEngagement/unity_project/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>/home/mingfei/Documents/MaShuai&apos;s WorkSpace/LearningEngagement/unity_project/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>/home/mingfei/Unity/Hub/Editor/2018.4.25f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
