@@ -25,7 +25,6 @@ class Node:
 # BVHReader
 class BVHReader:
     def __init__(self, filename):   
-        print('mark 3')     
         self.filename = filename
         # A list of unprocessed tokens (strings)
         self.tokenlist = []
@@ -234,7 +233,6 @@ class BVHReader:
 
 class BVHBroadcaster(BVHReader):
     def __init__(self, filename, root_frame):
-        print('mark 2')
         BVHReader.__init__(self, filename)
         self.br = tf.TransformBroadcaster()
         self.all_motions = []
@@ -245,7 +243,7 @@ class BVHBroadcaster(BVHReader):
         self.counter = 0
         self.this_motion = None
 
-        self.scaling_factor = 0.1
+        self.scaling_factor = 1
 
     def onHierarchy(self, root):
         self.scaling_factor = 0.1/root.children[0].children[0].offset[0]
@@ -342,11 +340,9 @@ class BVHBroadcaster(BVHReader):
 
     def broadcast(self, loop=False):
         self.read()
-        #addbyms
         rospy.init_node("BVHBroadcaster")
-        
         rate = rospy.Rate(1/self.dt)
-
+        print('Broadcasting')
         while not rospy.is_shutdown():
             for ind in range(self.num_motions):
                 self.counter = 0

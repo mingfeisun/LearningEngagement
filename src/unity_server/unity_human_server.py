@@ -16,10 +16,10 @@ def encode_data(frame_name, trans, rot):
     # each bone has 7 arguments
     encode_str = '%s#(,'%(frame_name)
     for i in range(3):
-        encode_str += '%.4f,'%(trans[i])
+        encode_str += '%f,'%(trans[i])
     encode_str += ')#(,'
     for i in range(4):
-        encode_str += '%.4f,'%(rot[i])
+        encode_str += '%f,'%(rot[i])
     encode_str += ')'
     return encode_str
 
@@ -29,7 +29,6 @@ class UnityBVHSender(BVHBroadcaster):
         BVHBroadcaster.__init__(self, filename, root_frame)
 
         #BVHReader.__init__(self, filename)
-        print('mark 1')
         self.tcp_conn = tcp_conn
 
     def sendTf(self, _trans, _rot, _time, _tf, _parent_tf):
@@ -38,9 +37,9 @@ class UnityBVHSender(BVHBroadcaster):
         self.tcp_conn.sendall(str.encode(a_str))
 
 class UnityHumanServer(gym.Env):
-    def __init__(self, bvh_file='walk.bvh', root_frame='human'):
+    def __init__(self, bvh_file='dance-mb2.bvh', root_frame='human'):
         HOST = "localhost"
-        PORT = 65432
+        PORT = 65431
         self.frame_queue = deque(maxlen=100) # frame buffer
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.bind((HOST, PORT))

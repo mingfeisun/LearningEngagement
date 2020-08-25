@@ -1,0 +1,127 @@
+How to use the BVH files from the 3dsMax-friendly release of the CMU
+motion database.
+
+v1.00 last update May 1, 2009 B. Hahne
+Get the BVH data at: www.cgspeed.com in the Motion Capture section
+
+This HOW-TO-USE-THESE-FILES.txt help file goes with the
+3dsMax-friendly BVH files available at www.cgspeed.com in the Motion
+Capture section. I also hope to do a short training video that
+demonstrates these steps, and if/when that's complete I'll post it
+somewhere near the download links for the BVH files.
+
+I've tested these steps with 3dsMax 2009.  The conversion is
+straightforward: you load the BVH data onto a Biped, save the data
+back out in .BIP format, and then it's available to use with any
+Biped.  It would also be possible for me to batch-convert all of the
+Max-friendly BVH files to .BIP and simply make the .BIP files
+available, however I thought it might be better to make the raw BVH
+files available instead, in case people want to further edit them (via
+text editor, script, or whatever you like) in some way.
+
+Here's how to put any of the BVH files to use, within 3dsMax.  
+
+1. Create a Biped via Create tab --> Systems -->Object Type rollout
+--> Biped, then drag up in the main viewport to actually create the
+Biped.  You can create the default Biped - there's no need to adjust
+the spine link count, number of fingers, etc.
+
+2. Make sure the Biped is selected, then go to the Motion tab.  You
+should see a large number of rollouts available for the Biped.  Find
+the Motion Capture rollout towards the bottom and expand it.
+
+3. The upper left icon within the Motion Capture rollout should be
+"Load Motion Capture file".  In 3dsMax 2009, the icon has a small file
+folder above a small camera.  Click this button to start the BVH load
+process.  An "Open" file dialogue box should appear.
+
+4a. In the file dialogue box, "Files of type:" will probably default
+to ".BIP".  Change this dropdown to ".BVH" so that you can see BVH
+files.
+
+4b. Still within the file dialogue box, navigate to the BVH file that
+you want to open, select it, then click the Open button.
+
+4c. You should get a warning message from Max that says it doesn't
+recognize all of the joints in the BVH file.  It should say "The
+following track names were found in the file and are unrecognized by
+Biped: LHipJoint, RHipJoint, lowerback, lowerneck, lhand, LFingers,
+LThumb, rhand, RFingers, RThumb".  If the warning message mentions any
+OTHER joint names then there's a problem, but that shouldn't happen if
+you're using the correct set of converted BVH files.  The
+Carnegie-Mellon skeleton has a variety of joints that don't map onto
+the 3dsMax Biped, so they're intentionally named in a way that
+prevents Max from trying to incorporate them into the loaded data.
+
+4d. Click "OK" on the warning message to make it go away.  Max should
+now bring up a large complex window titled "Motion Capture Conversion
+Parameters".
+
+4e. In the Motion Capture Conversion Parameters window, towards the
+top left of the window, set "Up Vector" to the "Y" radio button.  The
+default is "Z".  The CMU dataset uses "Y" as the up axis, so we're
+supposed to tell Max that in the BVH file, "Y" originally meant "up".
+(3dsMax uses the Z axis as its up axis.)  You should be able to leave
+all other parameters in this Parameters window at their default
+settings.
+
+4f.  Still in the Parameters window, click OK now that you've set Up
+Vector to "Y".  Max should load the BVH file data.  The Biped
+appearance will now change significantly, since Max completely
+overhauls the Biped skeleton to match the BVH base skeleton that it's
+just imported.  Don't worry if the shape of the skeleton doesn't look
+anything like what your preferred skeleton will look like when you
+actually animate.
+
+5. Click the animation play button (lower right corner) to test the
+playback of the data.  You should get a smooth playback of whatever
+animation you've just loaded.
+
+6a. Now we'll save the BVH data as a .BIP file so that we can use it
+with any Max Biped.  Make sure the Biped is still selected, and that
+the Motion tab is also still selected.  Open up the "Biped" rollout
+(it's open by default in Max 2009) and click the little diskette icon
+which is for "Save File".  Max should bring up a "Save As" dialogue
+box.
+
+6b. In the Save As dialogue box, make sure that "Save as type:" is set
+to .BIP.  Navigate to a directory where you want to save the data,
+type a file name in the File Name box, and click Save.
+
+7. Now you can test the .BIP file.  Create a new Biped.  I usually
+create my new Biped at least 2x larger than the original, so that it's
+easy to compare the motions when I hit play.  You can give the new
+Biped as many spine links as you want, you can add extra fingers, etc.
+3dsMax seems to be pretty good about retargeting across Bipeds, so in
+theory you should be able to create any Biped that you like.
+
+8. Select the new Biped and again go to the Motion tab, so that you
+see all of the rollouts available for the second (new) Biped.
+
+9a. Under the Biped rollout (NOT the Motion Capture rollout), click
+the "Load File" icon.  In 3dsMax 2009 this icon is immediately to the
+left of the Save File icon that you used in step 6a above.  Max should
+bring up an "Open" dialogue box to let you choose a .BIP file.
+
+9b. Still in the Open dialogue box, choose the .BIP file that you
+previously saved in step 6a and click Open to assign it to your second
+Biped.  Your second Biped should immediately take on a pose similar to
+the pose held by the original Biped.
+
+10. Play back the animation and confirm that the new Biped matches the
+motions of the original.  If you made the new Biped larger, Max will
+adjust its step size and motions appropriately to the size of the
+second Biped.
+
+11. The CMU dataset isn't entirely clean.  In particular, you'll find
+times when wrists or ankles will twist or flip incorrectly.  The
+investigations I've done so far suggest that these problems aren't a
+result of my conversion script (which attempts to preserve the
+original data as much as possible, to the extent that it's usable by
+Max), but rather are coming from the original captured data.
+Techniques for cleaning up bothced keyframes on limbs are beyond the
+scope of this little intro text file, however generally the approach
+is to find the joint(s) with the problem and replace the data with new
+keyframes that work, or simply delete the bad keyframes and make sure
+that the transition across the keyframe gap looks clean.
+
