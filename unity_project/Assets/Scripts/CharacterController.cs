@@ -19,72 +19,119 @@ public class CharacterController : MonoBehaviour {
     private TcpClient socketConnection;
     private Thread clientReceiveThread;
     private Transform offsetTf;
+    private int recvCount = 0;
+    private int offsetCount = 0;
+    private bool isUpdated = false;
     private volatile Queue recvBuffer = new Queue();
     private object _asyncLock = new object();
-    private Hashtable name2index = new Hashtable();
-    List<String> JointCollection = new List<String>{"mixamorig1_Hips", "mixamorig1_LeftUpLeg", "mixamorig1_LeftLeg", "mixamorig1_LeftFoot", "mixamorig1_LeftToeBase", "mixamorig1_LeftToe_End", "mixamorig1_RightUpLeg", "mixamorig1_RightLeg", "mixamorig1_RightFoot", "mixamorig1_RightToeBase", "mixamorig1_RightToe_End", "mixamorig1_Spine", "mixamorig1_Spine1", "mixamorig1_Spine2", "mixamorig1_LeftShoulder", "mixamorig1_LeftArm", "mixamorig1_LeftForeArm", "mixamorig1_LeftHand", "mixamorig1_LeftHandIndex1", "mixamorig1_LeftHandIndex2", "mixamorig1_LeftHandIndex3", "mixamorig1_LeftHandIndex4", "mixamorig1_LeftHandMiddle1", "mixamorig1_LeftHandMiddle2", "mixamorig1_LeftHandMiddle3", "mixamorig1_LeftHandMiddle4", "mixamorig1_LeftHandPinky1", "mixamorig1_LeftHandPinky2", "mixamorig1_LeftHandPinky3", "mixamorig1_LeftHandPinky4", "mixamorig1_LeftHandRing1", "mixamorig1_LeftHandRing2", "mixamorig1_LeftHandRing3", "mixamorig1_LeftHandRing4", "mixamorig1_LeftHandThumb1", "mixamorig1_LeftHandThumb2", "mixamorig1_LeftHandThumb3", "mixamorig1_LeftHandThumb4", "mixamorig1_Neck", "mixamorig1_Head", "mixamorig1_HeadTop_End", "mixamorig1_RightShoulder", "mixamorig1_RightArm", "mixamorig1_RightForeArm", "mixamorig1_RightHand", "mixamorig1_RightHandIndex1", "mixamorig1_RightHandIndex2", "mixamorig1_RightHandIndex3", "mixamorig1_RightHandIndex4", "mixamorig1_RightHandMiddle1", "mixamorig1_RightHandMiddle2", "mixamorig1_RightHandMiddle3", "mixamorig1_RightHandMiddle4", "mixamorig1_RightHandPinky1", "mixamorig1_RightHandPinky2", "mixamorig1_RightHandPinky3", "mixamorig1_RightHandPinky4", "mixamorig1_RightHandRing1", "mixamorig1_RightHandRing2", "mixamorig1_RightHandRing3", "mixamorig1_RightHandRing4", "mixamorig1_RightHandThumb1", "mixamorig1_RightHandThumb2", "mixamorig1_RightHandThumb3", "mixamorig1_RightHandThumb4"};
-    //List<string> JointCollection = new List<string>{ "AdditionalCardPersonAdressType", "mixamorig1_Hips"};
-
+    private Dictionary<String, Vector3> skinTrans = new Dictionary<String, Vector3>();
+    private Dictionary<String, Vector3> animTrans = new Dictionary<String, Vector3>();
+    private Dictionary<String, Quaternion> skinRot = new Dictionary<String, Quaternion>();
+    private Dictionary<String, Quaternion> alignment = new Dictionary<String, Quaternion>();
+    
 
     void Reset() {
     }
 
     void Awake() {
-        //actor = GameObject.Find("human").GetComponent<Actor>();
         actor = GetComponent<Actor>();
-        //actor = GameObject.Find("mixamorig1_Hips").GetComponent<Actor>();
-        Debug.Log("Call the Awake()");
     }
 
     void Start() { 
         offsetTf = GameObject.Find("human").transform;
-        // motionData = (MotionData)AssetDatabase.LoadMainAssetAtPath("Assets/walk_3dmax.bvh.asset");
-        // motionData = (MotionData)AssetDatabase.LoadMainAssetAtPath("Assets/Motions/Brooklyn Uprock.asset");
-        // motionData = (MotionData)AssetDatabase.LoadMainAssetAtPath("Assets/Motions/rumba_dancing.asset");
-        motionData = (MotionData)AssetDatabase.LoadMainAssetAtPath("Assets/Motions/dance-max.bvh.asset");
-        //Debug.Log("Number of frames: " + motionData.Frames.Length);
+        motionData = (MotionData)AssetDatabase.LoadMainAssetAtPath("Assets/Motions/dance-mb2.bvh.asset");
+        RecordInitPose();
         ConnectToTcpServer();
         //ConstructMapping();
     }
 
-    void ConstructMapping() {
-        StreamReader inp_stm = new StreamReader("Assets/Scripts/name2index.txt");
-        while(!inp_stm.EndOfStream)
-        {
-            String inp_ln = inp_stm.ReadLine( );
-            var sArray = inp_ln.Split(',');
-            int index = Int16.Parse(sArray[0]);
-            String joint_name = sArray[1];
-            name2index.Add(joint_name, index);
+    void RecordInitPose(){
+        for(int i=0; i<actor.Bones.Length; i++) {
+            var bone = actor.Bones[i];
+            String bone_name = bone.GetName();
+            Vector3 bone_local_trans = bone.Transform.localPosition;
+            Quaternion bone_local_rot = bone.Transform.localRotation; 
+            skinTrans.Add(bone_name, bone_local_trans);
+            skinRot.Add(bone_name, bone_local_rot);
         }
-        inp_stm.Close( );  
-}
+    }
 
     void Update() {
-        // UpdateFromQueue();
-        UpdateFromMotionData();
+        // UpdateAlignment();
+        UpdateFromQueue();
+        // UpdateFromMotionData();
     }
 
     void UpdateFromQueue() {
         Vector3 trans = new Vector3();
         Quaternion quat = new Quaternion(); 
+        Vector3 offset = new Vector3();
         for (int i =0 ; i< 50; i++){
             lock(_asyncLock){
                 if (recvBuffer.Count > 0){
                     String recv = (String)recvBuffer.Dequeue();
-                    var bone_name = DecodeData(recv, ref trans, ref quat);
+                    var bone_name = DecodeData(recv, ref trans, ref quat, ref offset);
                     if (bone_name == "LeftHandIndex1"){
                         bone_name = "LeftHandFinger1";
                     }
                     else if (bone_name == "RightHandIndex1"){
                         bone_name = "RightHandFinger1";
                     }
+                    if (offsetCount < 100){
+                        try {
+                            animTrans.Add(bone_name, offset);
+                        }
+                        catch (ArgumentException) { }
+                        offsetCount ++;
+                    }
                     var bone = actor.FindBone(bone_name);
-                    bone.Transform.position = trans * 2;
-                    bone.Transform.rotation = quat;
+                    bone.Transform.localPosition = trans;
+                    bone.Transform.localRotation = quat;
+                    // Vector3 new_trans = new Vector3(trans.x, trans.y, -trans.z);
+                    // Quaternion new_quat = new Quaternion(-quat.x, -quat.y, quat.z, quat.w);
+                    // if (alignment.Count > 0){
+                    //     bone.Transform.localPosition = new_trans;
+                    //     bone.Transform.localRotation = new_quat;
+                    // }
+                    // else {
+                    //     bone.Transform.localPosition = new_trans;
+                    //     bone.Transform.localRotation = new_quat;
+                    // }
                 }
             }
         }
+    }
+
+    void UpdateAlignment(){
+        if (recvCount < 100 || offsetCount < 100){
+            return;
+        }
+        if (isUpdated){
+            return;
+        }
+        for(int i=0; i<actor.Bones.Length; i++) {
+            var bone = actor.Bones[i];
+            var bone_name = bone.GetName();
+
+            var skin_arrow = bone.Transform.localPosition;
+            var anim_arrow = animTrans[bone_name];
+            if (skin_arrow.magnitude == 0 || anim_arrow.magnitude == 0){
+                alignment.Add(bone_name, new Quaternion(0, 0, 0, 1));
+                continue;
+            }
+
+            Vector3 axis = Vector3.Cross(anim_arrow, skin_arrow);
+            float angle = Mathf.Asin(axis.magnitude / (skin_arrow.magnitude * anim_arrow.magnitude) );
+            Debug.Log("axis");
+            Debug.Log(axis.x);
+            Debug.Log(axis.y);
+            Debug.Log(axis.z);
+            Debug.Log("angle");
+            Debug.Log(angle);
+            Quaternion rot = Quaternion.AngleAxis(angle, axis.normalized);
+            alignment.Add(bone_name, rot);
+        }
+        isUpdated = true;
     }
 
     void UpdateFromMotionData() {
@@ -125,6 +172,9 @@ public class CharacterController : MonoBehaviour {
                         String dataMsg = Encoding.ASCII.GetString(incommingData);
                         lock(_asyncLock){
                             recvBuffer.Enqueue(dataMsg);
+                            if (recvCount < 100){
+                                recvCount ++;
+                            }
                         }
                     }
                 }
@@ -135,12 +185,13 @@ public class CharacterController : MonoBehaviour {
         }
     }
 
-    private String DecodeData(String _dataMsg, ref Vector3 _trans, ref Quaternion _quat)
+    private String DecodeData(String _dataMsg, ref Vector3 _trans, ref Quaternion _quat, ref Vector3 _offset)
     {
         // e.g., LeftHandIndex1#(,0.0442,-0.0000,0.0000,)#(,0.0000,0.0000,-0.0621,0.9981,)
         String[] dataStrs = _dataMsg.Split('#'); // only the first action is used
 
         var bone_name = dataStrs[0];
+
         String[] sArray = dataStrs[1].Split(',');
         _trans.x = float.Parse(sArray[1]);
         _trans.y = float.Parse(sArray[2]);
@@ -152,13 +203,18 @@ public class CharacterController : MonoBehaviour {
         _quat.z = float.Parse(sArray[3]);
         _quat.w = float.Parse(sArray[4]);
 
+        sArray = dataStrs[3].Split(',');
+        _offset.x = float.Parse(sArray[1]);
+        _offset.y = float.Parse(sArray[2]);
+        _offset.z = float.Parse(sArray[3]);
+
         return bone_name;
     }
 
     private void Animate(Frame frame) {
         for(int i=0; i<actor.Bones.Length; i++) {
             var tf = frame.GetBoneTransformation(i);
-            actor.Bones[i].Transform.position = tf.GetPosition()*7;
+            actor.Bones[i].Transform.position = tf.GetPosition();
             actor.Bones[i].Transform.rotation = tf.GetRotation();
         }
     }

@@ -330,12 +330,12 @@ class BVHBroadcaster(BVHReader):
 
         temp_rot = tf.transformations.quaternion_from_matrix(mat_rot)
 
-        self.sendTf(temp_trans, temp_rot, rospy.Time.now(), root.name, parent_frame)
+        self.sendTf(temp_trans, temp_rot, rospy.Time.now(), root.name, root.offset, parent_frame)
 
         for each_child in root.children:
             self.broadcastRootJoint(each_child, root.name)
     
-    def sendTf(self, _trans, _rot, _time, _tf, _parent_tf):
+    def sendTf(self, _trans, _rot, _time, _tf, init_offset, _parent_tf):
         self.br.sendTransform(_trans, _rot, _time, _tf, _parent_tf)
 
     def broadcast(self, loop=False):

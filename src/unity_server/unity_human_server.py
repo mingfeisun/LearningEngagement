@@ -11,7 +11,7 @@ from gym import spaces, utils
 from collections import deque
 from bvh_broadcaster import BVHBroadcaster, BVHReader
 
-def encode_data(frame_name, trans, rot):
+def encode_data(frame_name, trans, rot, offset):
     # (bone name, position 3 DoF, rotation 4 DoF)
     # each bone has 7 arguments
     encode_str = '%s#(,'%(frame_name)
@@ -20,6 +20,9 @@ def encode_data(frame_name, trans, rot):
     encode_str += ')#(,'
     for i in range(4):
         encode_str += '%f,'%(rot[i])
+    encode_str += ')#(,'
+    for i in range(3):
+        encode_str += '%f,'%(offset[i])
     encode_str += ')'
     return encode_str
 
@@ -31,9 +34,9 @@ class UnityBVHSender(BVHBroadcaster):
         #BVHReader.__init__(self, filename)
         self.tcp_conn = tcp_conn
 
-    def sendTf(self, _trans, _rot, _time, _tf, _parent_tf):
+    def sendTf(self, _trans, _rot, _time, _tf, init_offset, _parent_tf):
         self.br.sendTransform(_trans, _rot, _time, _tf, _parent_tf)
-        a_str = encode_data(_tf, _trans, _rot)
+        a_str = encode_data(_tf, _trans, _rot, init_offset)
         self.tcp_conn.sendall(str.encode(a_str))
 
 class UnityHumanServer(gym.Env):
