@@ -1,4 +1,18 @@
-## Group behavior modeling
+## Learning Engagement
+
+### How to use
+1. Compiling in the root folder:
+``` bash
+catkin_make
+source devel/setup.sh
+```
+
+2. Launching the system:
+``` bash
+roslaunch main main.launch
+```
+
+3. Running unity project
 
 ### Behavior modeling via Maximum Casual Entropy
 Assume group behaviors are governed by 
