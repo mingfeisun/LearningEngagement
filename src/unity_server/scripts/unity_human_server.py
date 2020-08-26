@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 import tf
 import ast
@@ -40,7 +41,7 @@ class UnityBVHSender(BVHBroadcaster):
         self.tcp_conn.sendall(str.encode(a_str))
 
 class UnityHumanServer(gym.Env):
-    def __init__(self, bvh_file='dance-mb2.bvh', root_frame='human'):
+    def __init__(self, bvh_file='/home/mingfei/Documents/LearningEngagement/src/unity_server/bvh/dance-mb2.bvh', root_frame='human'):
         HOST = "localhost"
         PORT = 65431
         self.frame_queue = deque(maxlen=100) # frame buffer
